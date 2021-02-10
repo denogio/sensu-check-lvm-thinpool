@@ -14,7 +14,7 @@ steps:
   - mkdir build
   - cp -a bin build/
   - cp -a .bonsai.yml build/
-  - tar -C build -cvzf sensu-check-lvm-thinpool_$TAG_linux_amd64.tar.gz .
+  - tar -C build -cvzf sensu-check-lvm-thinpool_${DRONE_TAG}_linux_amd64.tar.gz .
   - sha512sum sensu-check-lvm-thinpool_$TAG_linux_amd64.tar.gz > sensu-check-lvm-thinpool_$TAG_sha512_checksums.txt
 
 - name: Release
