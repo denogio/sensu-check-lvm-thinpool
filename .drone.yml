@@ -1,0 +1,21 @@
+---
+
+kind: pipeline
+type: docker
+name: release
+
+steps:
+
+- name: Release
+  image: plugins/github-release
+  settings:
+    api_key:
+      from_secret: GITHUB_RELEASE_TOKEN
+    files:
+      - bin/*
+      - .bonsai.yml
+    checksum:
+      - sha512
+trigger:
+  event:
+    - tag
