@@ -19,14 +19,11 @@ steps:
 
 - name: Release
   image: plugins/github-release
-  environment:
-    TAG: ${DRONE_TAG}
   settings:
     api_key:
       from_secret: GITHUB_RELEASE_TOKEN
     files:
-      - sensu-check-lvm-thinpool_$TAG_linux_amd64.tar.gz
-      - sensu-check-lvm-thinpool_$TAG_sha512_checksums.txt
+      - sensu-check-lvm-thinpool_*
     checksum:
       - sha512
 trigger:
